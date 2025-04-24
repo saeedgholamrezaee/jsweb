@@ -1,7 +1,41 @@
 <html>
 <head></head>
-<body>
-hello world
-<p>programing language learning</p>
+<body style="background-color: #ae2c56;">
+
+<h2>hello world</h2>
+
+<p><i>programing</i> language learning</p>
+
+<button id="btn_inline" onclick="window.alert('inline js code');">click me! </button>
+<br />
+<button id="btn_msg" onclick="msg();">show message </button>
+<br />
+<br />
+<button id="btn_p" onclick="setPText();">show message </button>
+<br />
+<div id="p_mytxt">
+
+</div>
+<br />
+<br />
+<button id="btn_css" onclick="setcss();">change css </button>
+<br />
+
 </body>
+<script>
+
+  function msg(){
+       window.alert("javascript code into html page");
+  }
+
+  function setPText(){
+      let gp = document.getElementById("p_mytxt");
+      gp.innerHTML = "<h1>my dynamic html content with js</h1>";
+  }
+
+  function setcss(){
+      document.getElementsByTagName("body").style.background-color = "#235699";
+  }
+
+</script>
 </html>
