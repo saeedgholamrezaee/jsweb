@@ -1,0 +1,37 @@
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
+ssh -T git@github.com
+ssh-keygen -t rsa -b 4096 -C "your-email@your-domain"
+cat ~/.ssh/id_rsa.pub
+ssh-add -l
+ssh-add ~/.ssh/id_rsa
+
+Personal Access Token (PAT)
+git config --global credential.helper store
+git config --global credential.helper cache
+
+git init      
+git clone git@github.com:username/repository.git
+git add .    
+git commit -m "Initial commit"  
+
+git remote -v
+git remote add origin git@github.com:your-username/your-repo.git
+git remote set-url origin git@github.com:username/repository.git
+
+git branch -vv
+git branch -M main  
+git push --set-upstream origin main
+git push -u origin main
+git pull --rebase origin main
+git push --force origin main
+
+git submodule add https://github.com/example/library.git libs/library
+git submodule update --init --recursive
+git clone --recurse-submodules <repo_url>
+git submodule update --remote --merge
+git config -f .git/config --remove-section submodule.<path>
+git rm --cached <path>
+rm -rf <path>
+
