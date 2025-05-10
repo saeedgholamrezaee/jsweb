@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به سایت</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2> صفحه ورود</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="firstName">نام:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <div id="firstNameError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">نام خانوادگی:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <div id="lastNameError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">ایمیل:</label>
+                <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">رمز عبور:</label>
+                <input type="password" id="password" name="password" required>
+                <div id="passwordError" class="error"></div>
+            </div>
+            
+            <button type="submit">ثبت نام</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            
+            // Validate form
+            let isValid = true;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (firstName.trim() === '') {
+                document.getElementById('firstNameError').textContent = 'لطفا نام خود را وارد کنید';
+                isValid = false;
+            }
+            
+            if (lastName.trim() === '') {
+                document.getElementById('lastNameError').textContent = 'لطفا نام خانوادگی خود را وارد کنید';
+                isValid = false;
+            }
+            
+            if (email.trim() === '' || !email.includes('@')) {
+                document.getElementById('emailError').textContent = 'لطفا یک ایمیل معتبر وارد کنید';
+                isValid = false;
+            }
+            
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'رمز عبور باید حداقل 6 کاراکتر باشد';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('فرم با موفقیت ارسال شد!');
+            
+               
+            }
+        });
+    </script>
+</body>
+</html>
