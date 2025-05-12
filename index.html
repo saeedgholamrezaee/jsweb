@@ -1,78 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-<style>
-p {
- background-color: salmon;
- color: blue;
-}
-#p2 {
-  color: black;
-}
-.myClass {
- 
-  background-color: yellow;
-  color: red;
-}
-</style>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدیریت کاربران و کالاها</title>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body style="background-color: #ae2c56;">
-
-<h2>hello world</h2>
-<ol>
- <li class="myClass">asdfasd</li>
- <li>social</li>
- <li class="myClass">asdfas</li>
- <li>physic</li>
- <li class="myClass">asdfas</li>
- <li>science</li>
- <li class="myClass">math</li>
-</ol>
-<p id="p1"><i>programing</i> language learning</p>
-
-<button id="btn_inline" onclick="window.alert('inline js code');">click me! </button>
-<br />
-<button id="btn_msg" onclick="msg();">show message </button>
-<br />
-
-<p id="p2"><i>programing</i>dddddddddddddddddddddddddddddddd language learning</p>
-<br />
-<button id="btn_p" onclick="setPText();">show message </button>
-<br />
-<div id="p_mytxt">
-
-</div>
-<br />
-<br />
-<button id="btn_css" onclick="setcss();">change css </button>
-<br />
-
+<body>
+  <div class="container">
+    <h2>به سیستم مدیریت خوش آمدید!</h2>
+    <p>این پروژه شامل یه سیستم ساده برای ثبت‌نام کاربر و مدیریت کالاهاست.</p>
+    <div class="button-group">
+      <a href="form.html" class="primary">ثبت‌نام و ورود کالا</a>
+      <a href="invoice.html" class="primary">مشاهده فاکتور</a>
+    </div>
+  </div>
 </body>
-<script>
-
-  function msg(){
-       window.alert("javascript code into html page");
-  }
-
-  function setPText(){
-      let gp = document.getElementById("p_mytxt");
-      gp.innerHTML = "<h1>my dynamic html content with js</h1>";
-  }
-
-  function setcss(){
-      //document.body.style.backgroundColor = "red";
-      //document.body.style.fontSize = "2em";
-      document.getElementsByTagName("body")[0].style.backgroundColor = "red";
-  }
-
-</script>
 </html>

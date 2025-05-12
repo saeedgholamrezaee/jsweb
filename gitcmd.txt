@@ -1,37 +1,29 @@
-git config --global user.name "Your Name"
-git config --global user.email "your-email@example.com"
+ # دستورات گیت برای آپلود پروژه
 
-ssh -T git@github.com
-ssh-keygen -t rsa -b 4096 -C "your-email@your-domain"
-cat ~/.ssh/id_rsa.pub
-ssh-add -l
-ssh-add ~/.ssh/id_rsa
+# 1. یه ریپازیتوری جدید بساز
+git init
 
-Personal Access Token (PAT)
-git config --global credential.helper store
-git config --global credential.helper cache
+# 2. فایل‌ها رو اضافه کن
+git add .
 
-git init      
-git clone git@github.com:username/repository.git
-git add .    
-git commit -m "Initial commit"  
+# 3. یه کامیت بساز
+git commit -m "اولین نسخه پروژه: سیستم ثبت‌نام و مدیریت کالا"
 
-git remote -v
-git remote add origin git@github.com:your-username/your-repo.git
-git remote set-url origin git@github.com:username/repository.git
+# 4. ریموت ریپازیتوری رو اضافه کن
+git remote add origin https://github.com/saeedgholamrezaee/jsweb.git
 
-git branch -vv
-git branch -M main  
-git push --set-upstream origin main
+# 5. پروژه رو آپلود کن
 git push -u origin main
-git pull --rebase origin main
-git push --force origin main
 
-git submodule add https://github.com/example/library.git libs/library
-git submodule update --init --recursive
-git clone --recurse-submodules <repo_url>
-git submodule update --remote --merge
-git config -f .git/config --remove-section submodule.<path>
-git rm --cached <path>
-rm -rf <path>
+# اگه تغییر جدیدی داشتی:
+# 1. تغییرات رو اضافه کن
+git add .
 
+# 2. کامیت جدید بساز
+git commit -m "به‌روزرسانی: بهبود استایل و اضافه کردن فاکتور"
+
+# 3. آپلود کن
+git push
+
+# برای چک کردن وضعیت
+git status

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فاکتور کالاها</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>فاکتور کالاها</h2>
+    <div class="product-list" id="invoiceList"></div>
+    <div class="button-group">
+      <a href="form.html" class="primary">بازگشت به فرم</a>
+    </div>
+  </div>
+
+  <script>
+    const invoiceList = document.getElementById('invoiceList');
+    const products = JSON.parse(localStorage.getItem('inventory')) || [];
+
+    if (products.length === 0) {
+      invoiceList.innerHTML = '<div class="empty-message">هیچ کالایی ثبت نشده است</div>';
+    } else {
+      products.forEach((product, index) => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product-item';
+        productElement.innerHTML = `
+          <div>
+            <strong>کالا ${index + 1}: ${product.name}</strong><br>
+            قیمت: ${product.price.toLocaleString('fa-IR')} تومان<br>
+            <small>${product.desc || 'بدون توضیح'}</small>
+          </div>
+        `;
+        invoiceList.appendChild(productElement);
+      });
+    }
+  </script>
+</body>
+</html>
